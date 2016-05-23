@@ -11,9 +11,9 @@ and will be used across all viewports.
 
 ******************************************************************/
 
-/*********************
-GENERAL STYLES
-*********************/
+/*------------------------------------------------------------------------*\
+    #GENERAL-STYLES
+\*------------------------------------------------------------------------*/
 
 body {
 	font-family: $lato;
@@ -25,58 +25,13 @@ body {
   	-moz-osx-font-smoothing: grayscale;
 }
 
-/********************
-WORDPRESS BODY CLASSES
-style a page via class
-********************/
-
-.rtl {}                           /* for sites that are read right to left (i.e. hebrew) */
-.home {}                          /* home page */
-.blog {}                          /* blog template page */
-.archive {}                       /* archive page */
-.date {}                          /* date archive page */
-	.date-paged-1 {}                /* replace the number to the corresponding page number */
-.search {}                        /* search page */
-	.search-results {}              /* search result page */
-	.search-no-results {}           /* no results search page */
-	.search-paged-1 {}              /* individual paged search (i.e. body.search-paged-3) */
-.error404 {}                      /* 404 page */
-.single {}                        /* single post page */
-	.postid-1 {}                    /* individual post page by id (i.e. body.postid-73) */
-	.single-paged-1 {}              /* individual paged single (i.e. body.single-paged-3) */
-.attachment {}                    /* attatchment page */
-	.attachmentid-1 {}              /* individual attatchment page (i.e. body.attachmentid-763) */
-	.attachment-mime-type {}        /* style mime type pages */
-.author {}                        /* author page */
-	.author-nicename {}             /* user nicename (i.e. body.author-samueladams) */
-	.author-paged-1 {}              /* paged author archives (i.e. body.author-paged-4) for page 4 */
-.category {}                      /* category page */
-	.category-1 {}                  /* individual category page (i.e. body.category-6) */
-	.category-paged-1 {}            /* replace the number to the corresponding page number */
-.tag {}                           /* tag page */
-	.tag-slug {}                    /* individual tag page (i.e. body.tag-news) */
-	.tag-paged-1 {}                 /* replace the number to the corresponding page number */
-.page-template {}                 /* custom page template page */
-	.page-template-page-php {}      /* individual page template (i.e. body.page-template-contact-php */
-	.page-paged-1 {}                /* replace the number to the corresponding page number */
-	.page-parent {}                 /* parent page template */
-	.page-child {}                  /* child page template */
-	.parent-pageid-1 {}             /* replace the number to the corresponding page number */
-.logged-in {}                     /* if user is logged in */
-.paged {}                         /* paged items like search results or archives */
-	.paged-1 {}                     /* individual paged (i.e. body.paged-3) */
-
-/*********************
-LAYOUT & GRID STYLES
-*********************/
-
 .wrap {
 	width: 96%;
 	margin: 0 auto;
 }
 
 /*********************
-LINK STYLES
+	#LINKS
 *********************/
 
 a, a:visited {
@@ -103,9 +58,11 @@ a, a:visited {
 	}
 }
 
-/******************************************************************
-H1, H2, H3, H4, H5 STYLES
-******************************************************************/
+
+
+/*********************
+	#H1, H2, H3, H4, H5
+*********************/
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 	text-rendering: optimizelegibility;
@@ -148,15 +105,19 @@ h5, .h5 {
 	letter-spacing: 2px;
 }
 
-/*********************
-HEADER STYLES
-*********************/
 
-.header {
+
+
+
+/*------------------------------------------------------------------------*\
+    #HEADER
+\*------------------------------------------------------------------------*/
+
+.the-header {
 	background-color: $black;
 }
 
-	#logo {
+	.logo {
 		margin: 0.75em 0;
 
 		a {
@@ -165,18 +126,10 @@ HEADER STYLES
 	}
 
 /*********************
-NAVIGATION STYLES
+	#NAVIGATION
 *********************/
 
-/*
-all navs have a .nav class applied via
-the wp_menu function; this is so we can
-easily write one group of styles for
-the navs on the site so our css is cleaner
-and more scalable.
-*/
-
-.nav {
+.the-nav {
 	border-bottom: 0;
 	margin: 0;
 
@@ -247,6 +200,12 @@ and more scalable.
 } /* end .nav */
 
 
+
+
+
+/*------------------------------------------------------------------------*\
+    #BODY
+\*------------------------------------------------------------------------*/
 /*********************
 POSTS & CONTENT STYLES
 *********************/
@@ -488,9 +447,9 @@ POSTS & CONTENT STYLES
 		margin: 0;
 	}
 
-/******************************************************************
+/*******************************
 PAGE NAVI STYLES
-******************************************************************/
+********************************/
 
 .pagination,
 .wp-prev-next {
@@ -562,9 +521,9 @@ PAGE NAVI STYLES
 
 	} /* end .wp-prev-next */
 
-/******************************************************************
+/************************
 COMMENT STYLES
-******************************************************************/
+************************/
 
 /* h3 comment title */
 #comments-title {
@@ -818,9 +777,14 @@ COMMENT FORM STYLES
 		margin: 0 20px 1.1em;
 	}
 
-/*********************
-SIDEBARS & ASIDES
-*********************/
+
+
+
+
+
+/*------------------------------------------------------------------------*\
+    #SIDEBAR
+\*------------------------------------------------------------------------*/
 
 .sidebar {}
 
@@ -856,9 +820,13 @@ SIDEBARS & ASIDES
 		margin-bottom: 1.5em;
 	}
 
-/*********************
-FOOTER STYLES
-*********************/
+
+
+
+
+/*------------------------------------------------------------------------*\
+    #Footer
+\*------------------------------------------------------------------------*/
 
 .footer {
 	clear: both;
@@ -866,15 +834,6 @@ FOOTER STYLES
 	color: $light-gray;
 }
 
-	/*
-	if you checked out the link above:
-	http://www.alistapart.com/articles/organizing-mobile/
-	you'll want to style the footer nav
-	a bit more in-depth. Remember to keep
-	it simple because you'll have to
-	override these styles for the desktop
-	view.
-	*/
 	.footer-links {
 
 		ul {
@@ -887,3 +846,49 @@ FOOTER STYLES
 
 
 	.copyright {}
+
+
+
+
+
+
+	/********************
+	WORDPRESS BODY CLASSES
+	style a page via class
+	********************/
+
+	.rtl {}                           /* for sites that are read right to left (i.e. hebrew) */
+	.home {}                          /* home page */
+	.blog {}                          /* blog template page */
+	.archive {}                       /* archive page */
+	.date {}                          /* date archive page */
+		.date-paged-1 {}                /* replace the number to the corresponding page number */
+	.search {}                        /* search page */
+		.search-results {}              /* search result page */
+		.search-no-results {}           /* no results search page */
+		.search-paged-1 {}              /* individual paged search (i.e. body.search-paged-3) */
+	.error404 {}                      /* 404 page */
+	.single {}                        /* single post page */
+		.postid-1 {}                    /* individual post page by id (i.e. body.postid-73) */
+		.single-paged-1 {}              /* individual paged single (i.e. body.single-paged-3) */
+	.attachment {}                    /* attatchment page */
+		.attachmentid-1 {}              /* individual attatchment page (i.e. body.attachmentid-763) */
+		.attachment-mime-type {}        /* style mime type pages */
+	.author {}                        /* author page */
+		.author-nicename {}             /* user nicename (i.e. body.author-samueladams) */
+		.author-paged-1 {}              /* paged author archives (i.e. body.author-paged-4) for page 4 */
+	.category {}                      /* category page */
+		.category-1 {}                  /* individual category page (i.e. body.category-6) */
+		.category-paged-1 {}            /* replace the number to the corresponding page number */
+	.tag {}                           /* tag page */
+		.tag-slug {}                    /* individual tag page (i.e. body.tag-news) */
+		.tag-paged-1 {}                 /* replace the number to the corresponding page number */
+	.page-template {}                 /* custom page template page */
+		.page-template-page-php {}      /* individual page template (i.e. body.page-template-contact-php */
+		.page-paged-1 {}                /* replace the number to the corresponding page number */
+		.page-parent {}                 /* parent page template */
+		.page-child {}                  /* child page template */
+		.parent-pageid-1 {}             /* replace the number to the corresponding page number */
+	.logged-in {}                     /* if user is logged in */
+	.paged {}                         /* paged items like search results or archives */
+		.paged-1 {}                     /* individual paged (i.e. body.paged-3) */
