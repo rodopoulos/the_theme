@@ -56,3 +56,6 @@ temp/
 
 *.codekit
 *.scssc
+
+# Ignoring the 'distribution' folder
+dist/

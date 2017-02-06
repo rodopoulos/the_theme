@@ -27,7 +27,7 @@ removing all the junk we don't
 need.
 *********************/
 
-function bones_head_cleanup() {
+function the_head_cleanup() {
 	// category feeds
 	// remove_action( 'wp_head', 'feed_links_extra', 3 );
 	// post and comment feeds
@@ -45,9 +45,9 @@ function bones_head_cleanup() {
 	// WP version
 	remove_action( 'wp_head', 'wp_generator' );
 	// remove WP version from css
-	add_filter( 'style_loader_src', 'bones_remove_wp_ver_css_js', 9999 );
+	add_filter( 'style_loader_src', '_remove_wp_ver_css_js', 9999 );
 	// remove Wp version from scripts
-	add_filter( 'script_loader_src', 'bones_remove_wp_ver_css_js', 9999 );
+	add_filter( 'script_loader_src', '_remove_wp_ver_css_js', 9999 );
 
 } /* end bones head cleanup */
 
@@ -83,10 +83,10 @@ function rw_title( $title, $sep, $seplocation ) {
 } // end better title
 
 // remove WP version from RSS
-function bones_rss_version() { return ''; }
+function the_rss_version() { return ''; }
 
 // remove WP version from scripts
-function bones_remove_wp_ver_css_js( $src ) {
+function _remove_wp_ver_css_js( $src ) {
 	if ( strpos( $src, 'ver=' ) )
 		$src = remove_query_arg( 'ver', $src );
 	return $src;
@@ -164,7 +164,7 @@ THEME SUPPORT
 *********************/
 
 // Adding WP 3+ Functions & Theme Support
-function bones_theme_support() {
+function the_theme_support() {
 
 	// wp thumbnails (sizes handled in functions.php)
 	add_theme_support( 'post-thumbnails' );
@@ -208,10 +208,7 @@ function bones_theme_support() {
 
 	// registering wp3+ menus
 	register_nav_menus(
-		array(
-			'main-nav' => __( 'The Main Menu', 'bonestheme' ),   // main nav in header
-			'footer-links' => __( 'Footer Links', 'bonestheme' ) // secondary nav in footer
-		)
+		array('main-nav' => __( 'The Main Menu', 'thetheme' ))
 	);
 
 	// Enable support for HTML5 markup.
@@ -248,7 +245,7 @@ function bones_related_posts() {
 				<li class="related_post"><a class="entry-unrelated" href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></li>
 			<?php endforeach; }
 		else { ?>
-			<?php echo '<li class="no_related_post">' . __( 'No Related Posts Yet!', 'bonestheme' ) . '</li>'; ?>
+			<?php echo '<li class="no_related_post">' . __( 'No Related Posts Yet!', 'thetheme' ) . '</li>'; ?>
 		<?php }
 	}
 	wp_reset_postdata();
@@ -293,7 +290,7 @@ function bones_filter_ptags_on_images($content){
 function bones_excerpt_more($more) {
 	global $post;
 	// edit here if you like
-	return '...  <a class="excerpt-read-more" href="'. get_permalink( $post->ID ) . '" title="'. __( 'Read ', 'bonestheme' ) . esc_attr( get_the_title( $post->ID ) ).'">'. __( 'Read more &raquo;', 'bonestheme' ) .'</a>';
+	return '...  <a class="excerpt-read-more" href="'. get_permalink( $post->ID ) . '" title="'. __( 'Read ', 'thetheme' ) . esc_attr( get_the_title( $post->ID ) ).'">'. __( 'Read more &raquo;', 'thetheme' ) .'</a>';
 }
 
 

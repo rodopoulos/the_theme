@@ -110,7 +110,7 @@ you like.
 
 // Custom Backend Footer
 function bones_custom_admin_footer() {
-	_e( '<span id="footer-thankyou">Desenvolvido por <a href="http://feliperodopoulos.com" target="_blank">Rodopoulos</a></span>. Built using <a href="http://themble.com/bones" target="_blank">Bones</a>.', 'bonestheme' );
+	_e( '<span id="footer-thankyou">Desenvolvido por <a href="http://feliperodopoulos.com" target="_blank">Rodopoulos</a></span>. Built using <a href="http://themble.com/bones" target="_blank">Bones</a>.', 'thetheme' );
 }
 
 // adding it to the admin area
