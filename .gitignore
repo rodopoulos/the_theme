@@ -1,37 +1,58 @@
-# ignore the compiled assets
-dist/
+# folders and files to be ignored by git
 
-# ignore node modules
-node_modules/
+############
+## Bones
+############
 
-# ignore OS generated files
-ehthumbs.db
-Thumbs.db
+Bones.esproj/
 
-# ignore Editor files
-*.sublime-project
-*.sublime-workspace
-*.komodoproject
+############
+## IDEs
+############
 
-# ignore log files and databases
+*.pydevproject
+.project
+.metadata
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+.externalToolBuilders/
+*.launch
+.cproject
+.buildpath
+nbproject/
+
+############
+## OSes
+############
+
+[Tt]humbs.db
+[Dd]esktop.ini
+*.DS_store
+.DS_store?
+
+############
+## Misc
+############
+
+bin/
+tmp/
+*.tmp
+*.bak
 *.log
-*.sql
-*.sqlite
+*.[Cc]ache
+*.cpr
+*.orig
+*.php.in
+.idea/
+temp/
+._*
+.Trashes
 
-# ignore compiled files
-*.com
-*.class
-*.dll
-*.exe
-*.o
-*.so
+.svn
 
-# ignore packaged files
-*.7z
-*.dmg
-*.gz
-*.iso
-*.jar
-*.rar
-*.tar
-*.zip
+*.codekit
+*.scssc
