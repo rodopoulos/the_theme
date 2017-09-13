@@ -19,14 +19,16 @@ function the_init() {
 
   // launching operation cleanup
   add_action( 'init', 'the_head_cleanup' );
+  // adding external fonts
+  add_action('wp_enqueue_scripts', 'the_fonts');
   // A better title
   add_filter( 'wp_title', 'rw_title', 10, 3 );
   // remove WP version from RSS
   add_filter( 'the_generator', 'the_rss_version' );
   // remove pesky injected css for recent comments widget
-  add_filter( 'wp_head', 'bones_remove_wp_widget_recent_comments_style', 1 );
+  add_filter( 'wp_head', 'the_theme_remove_wp_widget_recent_comments_style', 1 );
   // clean up comment styles in the head
-  add_action( 'wp_head', 'bones_remove_recent_comments_style', 1 );
+  add_action( 'wp_head', 'the_theme_remove_recent_comments_style', 1 );
   // clean up gallery output in wp
   add_filter( 'gallery_style', 'the_gallery_style' );
 
@@ -39,13 +41,11 @@ function the_init() {
 
   // adding sidebars to Wordpress (these are created in functions.php)
   add_action( 'widgets_init', 'the_sidebars_registration' );
-
   // cleaning up random code around images
-  add_filter( 'the_content', 'bones_filter_ptags_on_images' );
+  add_filter( 'the_content', 'the_theme_filter_ptags_on_images' );
   // cleaning up excerpt
-  add_filter( 'excerpt_more', 'bones_excerpt_more' );
-
-} /* end bones ahoy */
+  add_filter( 'excerpt_more', 'the_theme_excerpt_more' );
+}
 
 // let's get this party started
 add_action( 'after_setup_theme', 'the_init' );
@@ -85,10 +85,10 @@ you like. Enjoy!
 
 // add_filter( 'image_size_names_choose', 'bones_custom_image_sizes' );
 
-function bones_custom_image_sizes( $sizes ) {
+function the_theme_custom_image_sizes( $sizes ) {
     return array_merge( $sizes, array(
-        'bones-thumb-600' => __('600px by 150px'),
-        'bones-thumb-300' => __('300px by 100px'),
+        'the_theme-thumb-600' => __('600px by 150px'),
+        'the_theme-thumb-300' => __('300px by 100px'),
     ) );
 }
 
@@ -116,26 +116,13 @@ new image size.
   - Create some boilerplate Sections, Controls and Settings
 */
 
-function bones_theme_customizer($wp_customize) {
-  // $wp_customize calls go here.
-  //
-  // Uncomment the below lines to remove the default customize sections
-
+function the_theme_theme_customizer($wp_customize) {
   // $wp_customize->remove_section('title_tagline');
-  // $wp_customize->remove_section('colors');
-  // $wp_customize->remove_section('background_image');
-  // $wp_customize->remove_section('static_front_page');
-  // $wp_customize->remove_section('nav');
-
-  // Uncomment the below lines to remove the default controls
-  // $wp_customize->remove_control('blogdescription');
-
-  // Uncomment the following to change the default section titles
-  // $wp_customize->get_section('colors')->title = __( 'Theme Colors' );
-  // $wp_customize->get_section('background_image')->title = __( 'Images' );
+  $wp_customize->remove_section('colors');
+  $wp_customize->remove_section('background_image');
 }
+add_action( 'customize_register', 'the_theme_theme_customizer' );
 
-add_action( 'customize_register', 'bones_theme_customizer' );
 
 /************* ACTIVE SIDEBARS ********************/
 
@@ -144,7 +131,7 @@ function the_sidebars_registration() {
 	register_sidebar(array(
 		'id' => 'sidebar1',
 		'name' => __( 'Sidebar 1', 'thetheme' ),
-		'description' => __( 'The first (primary) sidebar.', 'thetheme' ),
+		'description' => __( 'The first (primary) sidebar.', 'the_theme' ),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h4 class="widgettitle">',
@@ -181,7 +168,7 @@ function the_sidebars_registration() {
 /************* COMMENT LAYOUT *********************/
 
 // Comment Layout
-function bones_comments( $comment, $args, $depth ) {
+function the_theme_comments( $comment, $args, $depth ) {
    $GLOBALS['comment'] = $comment; ?>
   <div id="comment-<?php comment_ID(); ?>" <?php comment_class('cf'); ?>>
     <article  class="cf">
@@ -218,17 +205,5 @@ function bones_comments( $comment, $args, $depth ) {
 } // don't remove this bracket!
 
 
-/*
-This is a modification of a function found in the
-twentythirteen theme where we can declare some
-external fonts. If you're using Google Fonts, you
-can replace these fonts, change it in your scss files
-and be up and running in seconds.
-*/
-function the_fonts() {
-  wp_enqueue_style('googleFonts', '//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic');
-}
-
-add_action('wp_enqueue_scripts', 'the_fonts');
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>
