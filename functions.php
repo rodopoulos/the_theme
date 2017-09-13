@@ -1,23 +1,13 @@
 <?php
-/*
-Author: Eddie Machado
-URL: http://themble.com/bones/
-
-This is where you can drop your custom functions or
-just edit things like thumbnail sizes, header images,
-sidebars, comments, etc.
-*/
-
-// LOAD BONES CORE (if you remove this, the theme will break)
+// LOAD THEME CORE (this include is necessary)
 require_once( 'library/theme.php' );
 
 // CUSTOMIZE THE WORDPRESS ADMIN (off by default)
 require_once( 'library/admin.php' );
 
-/*********************
-LAUNCH BONES
-Let's get everything up and running.
-*********************/
+/*******************************************************************************
+  LAUNCH THE_THEME
+********************************************************************************/
 
 function the_init() {
 
