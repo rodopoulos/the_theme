@@ -45,7 +45,7 @@ add_action( 'wp_dashboard_setup', 'the_theme_custom_dashboard_widgets' );
 
 // calling your own login css so you can style it
 function the_theme_login_css() {
-	wp_enqueue_style( 'the_theme_login_css', get_template_directory_uri() . '/library/css/login.css', false );
+	wp_enqueue_style( 'the_theme_login_css', get_template_directory_uri() . '/assets/css/login.css', false );
 }
 
 // changing the logo link from wordpress.org to your site
